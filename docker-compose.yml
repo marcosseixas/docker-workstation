@@ -12,14 +12,14 @@ services:
         volumes:
             - ./nginx:/etc/nginx/conf.d
         volumes_from:
-            - workspace
+            - workstation
 
 ###########################
 # Container PHP
 ###########################
     workspace:
         image: marcosseixas/workstation-php-7-3
-        container_name: workspace
+        container_name: workstation
         expose:
             - 9000
         volumes:
