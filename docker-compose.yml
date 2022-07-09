@@ -1,0 +1,42 @@
+version: "3.7"
+services:
+###########################
+# Container Web (Nginx)
+###########################
+    nginx:
+        image: nginx:latest
+        container_name: server-nginx
+        ports:
+            - 80:80
+            #- 8080:80
+        volumes:
+            - ./nginx:/etc/nginx/conf.d
+        volumes_from:
+            - workspace
+
+###########################
+# Container PHP
+###########################
+    workspace:
+        image: marcosseixas/workstation-php-7.3
+        container_name: workspace
+        expose:
+            - 9000
+        volumes:
+            - ../:/var/www/html
+
+###########################
+# Container de banco de dados (MySQL)
+###########################
+    mysql:
+        image: mysql:5.7
+        container_name: server-mysql
+        ports:
+          - "3306:3306"
+        volumes:
+            - ./mysql/db:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: marvel
+            MYSQL_USER: root
+            MYSQL_PASSWORD: root
