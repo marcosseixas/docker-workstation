@@ -17,7 +17,7 @@ services:
 ###########################
 # Container PHP
 ###########################
-    workspace:
+    workstation:
         image: marcosseixas/workstation-php-7-3
         container_name: workstation
         expose:
