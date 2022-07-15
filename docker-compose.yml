@@ -18,7 +18,7 @@ services:
 # Container PHP
 ###########################
     workstation:
-        image: marcosseixas/workstation-php-7-3
+        image: marcosseixas/workstation-php-8
         container_name: workstation
         expose:
             - 9000
